@@ -1,8 +1,7 @@
 const sketchContainer = document.querySelector(".sketch-container");
+const sketchSquare = sketchContainer.childNodes;
 
 setGridSize(16);
-
-const sketchSquare = sketchContainer.childNodes;
 addHoverEffect(sketchSquare);
 
 const sizeButton = document.querySelector("#size-button");
@@ -11,6 +10,13 @@ sizeButton.addEventListener("click", () => {
     clearGrid();
     setGridSize(size);
     addHoverEffect(sketchSquare);
+});
+
+const resetButton = document.querySelector("#reset");
+resetButton.addEventListener("click", () => {
+    sketchSquare.forEach((div) => {
+        div.style.backgroundColor = "white";
+    });
 });
 
 function setGridSize(size) {
