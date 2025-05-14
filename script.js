@@ -1,6 +1,6 @@
 const sketchContainer = document.querySelector(".sketch-container");
 
-setGridSize(2);
+setGridSize(16);
 
 const sketchSquare = sketchContainer.childNodes;
 sketchSquare.forEach((div) => {
@@ -12,13 +12,8 @@ sketchSquare.forEach((div) => {
 const sizeButton = document.querySelector("#size-button");
 sizeButton.addEventListener("click", () => {
     let size = prompt("Enter grid size...");
-    let changedHeight = 640/Number(size);
-    let changedWidth = 640/Number(size);
-    sketchSquare.forEach((div) => {
-        div.style.backgroundColor = "white";
-        div.style.height = changedHeight + 'px';
-        div.style.width = changedWidth + 'px';
-    });
+    clearGrid();
+    setGridSize(size);
 });
 
 function setGridSize(size) {
@@ -32,5 +27,11 @@ function setGridSize(size) {
         div.style.height = height + 'px';
         div.style.width = width + 'px'; 
         sketchContainer.appendChild(div);
+    }
+}
+
+function clearGrid() {
+    while (sketchContainer.hasChildNodes()) {
+        sketchContainer.removeChild(sketchContainer.firstChild);
     }
 }
