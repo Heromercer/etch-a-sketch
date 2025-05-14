@@ -12,3 +12,8 @@ body {
   min-height: 640px;
   flex-wrap: wrap;
 }
+
+#size-button {
+  margin-top: 15px;
+  padding: 4px 12px;
+}
